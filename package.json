@@ -1,0 +1,32 @@
+{
+  "name": "timepack-album-model",
+  "version": "1.0.5",
+  "description": "The core module for timepack-album-business.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "babel ./src -d ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MillZhang/timepack-album-model.git"
+  },
+  "keywords": [
+    "es6",
+    "album"
+  ],
+  "author": "millzhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MillZhang/timepack-album-model/issues"
+  },
+  "homepage": "https://github.com/MillZhang/timepack-album-model#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "expect": "^21.2.1",
+    "mocha": "^2.5.3"
+  }
+}
