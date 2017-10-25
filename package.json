@@ -1,6 +1,6 @@
 {
   "name": "timepack-album-model",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "description": "The core module for timepack-album-business.",
   "main": "lib/index.js",
   "scripts": {

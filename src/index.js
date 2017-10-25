@@ -7,6 +7,7 @@ const THUMB600 = '?imageMogr2/thumbnail/600x600',
 class MCanvas {
 
     constructor() {
+        console.log(`初始化timepack-album-model`)
         this.boxWidth = window.innerWidth * 0.8;
         this.photo = null;
         this.layout = null;
@@ -15,6 +16,7 @@ class MCanvas {
 
 
     render(photo, layout, temp) {
+
         if (null != photo) {
             this.photo = photo;
         }
@@ -341,7 +343,7 @@ class MCanvas {
         if (undefined != currentPhoto) {
             let photo = currentPhoto[imageIndex],
                 imageScaleWidth, imageScaleHight,
-                zoom = photo.zoom;
+                zoom = Number(photo.zoom == undefined ? 1 : photo.zoom);
             let style = {
                 position: 'absolute',
                 left: photo.location.position.left.toFixed(2) + 'px',
@@ -756,7 +758,7 @@ class MCanvas {
                 spanY = evy - startPosition.y;
             let currentLeft = $(image).position().left,
                 currentTop = $(image).position().top,
-                zoom = Number($(image).attr('data-zoom'));
+                zoom = Number($(image).attr('data-zoom') == null ? 1 : $(image).attr('data-zoom'));
             //未缩放图片保持拖拽限制
             if (zoom === 1) {
                 if (image.style.height == 'auto') {
@@ -792,8 +794,9 @@ class MCanvas {
      * @param target
      */
     touchEnd(e, page, index, position, target) {
-        let image = undefined == target ? e.target : target;
-        let zoom = Number($(image).attr('data-zoom')),
+        let image = undefined == target ? e.target : target,
+            imageZoom = $(image).attr('data-zoom');
+        let zoom = Number( imageZoom== null ? 1 : imageZoom),
             currentPosition = $(image).position();
         if (zoom === 1) {
             if (image.style.height == 'auto') {
